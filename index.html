@@ -181,65 +181,41 @@
                 </button>
             </div>
 
-            <!-- iOS Device High Fidelity Wrapper -->
-            <div class="relative mx-auto border-slate-900 bg-slate-900 border-[12px] rounded-[3rem] h-[690px] w-[335px] shadow-2xl overflow-hidden ring-4 ring-slate-800/40">
-                <!-- Phone Notch / Island -->
-                <div class="top-0 inset-x-0 h-6.5 w-32 bg-slate-900 absolute mx-auto rounded-b-2xl z-50 flex items-center justify-between px-3">
-                    <div class="w-3.5 h-3.5 bg-zinc-950 rounded-full border border-zinc-900"></div>
-                    <div class="w-5 h-1.5 bg-zinc-950 rounded-full border border-zinc-900"></div>
-                </div>
+            <!-- iOS Device High Fidelity Wrapper (modern iPhone, 9:16 screen to match the recordings) -->
+            <div class="relative mx-auto bg-black border-[12px] border-black rounded-[3rem] h-[577px] w-[335px] shadow-2xl overflow-hidden ring-1 ring-slate-700/40">
 
-                <!-- Internal View Container -->
-                <div class="w-full h-full bg-slate-950 relative flex flex-col">
+                <!-- Screen -->
+                <div class="w-full h-full bg-black relative overflow-hidden">
 
-                    <!-- App Status Bar (iOS style) -->
-                    <div class="h-12 w-full pt-6 px-6 flex justify-between items-center text-white text-xs font-bold z-40 relative bg-slate-950">
-                        <span id="phone-ios-clock">09:41</span>
-                        <div class="flex items-center space-x-1.5">
-                            <i class="fa-solid fa-signal text-[9px]"></i>
-                            <i class="fa-solid fa-wifi text-[9px]"></i>
-                            <i class="fa-solid fa-battery-full text-[9px]"></i>
-                        </div>
+                    <!-- Dynamic Island -->
+                    <div class="absolute top-[9px] left-1/2 -translate-x-1/2 h-[26px] w-[92px] bg-black rounded-full z-50 flex items-center justify-end pr-3">
+                        <div class="w-1.5 h-1.5 rounded-full bg-slate-700"></div>
                     </div>
 
                     <!-- ========================================================= -->
-                    <!-- VIDEO VIEW (DEFAULT: Displays Real Screen Recording Videos) -->
+                    <!-- VIDEO VIEW (DEFAULT): full-screen 9:16 recordings, shown uncropped -->
                     <!-- ========================================================= -->
-                    <div id="phone-content-video" class="flex-1 flex flex-col relative bg-slate-950 transition-all duration-300">
+                    <div id="phone-content-video" class="absolute inset-0 bg-black transition-all duration-300">
+                        <!-- Feature 1: 메신저 맥락 분석 (Ask) -->
+                        <video id="video-asset-feature1" class="absolute inset-0 w-full h-full object-contain opacity-100 transition-opacity duration-300" loop muted playsinline preload="auto">
+                            <source src="noonchi-ask.mp4" type="video/mp4">
+                        </video>
 
-                        <!-- Floating HUD Overlay -->
-                        <div class="absolute bottom-4 left-4 right-4 z-20 p-3 bg-slate-900/80 backdrop-blur border border-white/10 rounded-xl text-white flex items-center justify-between">
-                            <div class="space-y-0.5">
-                                <p id="active-video-hud-title" class="text-xs font-extrabold">01. 메신저 맥락 분석 (Ask)</p>
-                                <p class="text-[9.5px] text-slate-300">실제 앱 캡처 분석 화면 재생 중</p>
-                            </div>
-                            <span class="w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse"></span>
-                        </div>
+                        <!-- Feature 2: 실전 비즈니스 롤플레잉 (Role-play) -->
+                        <video id="video-asset-feature2" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300" loop muted playsinline preload="auto">
+                            <source src="noonchi-roleplay.mp4" type="video/mp4">
+                        </video>
 
-                        <!-- Video Tags: one demo clip per feature, framed inside an evenly-padded box -->
-                        <div class="absolute inset-3 rounded-2xl overflow-hidden shadow-lg">
-                            <!-- Feature 1: 메신저 맥락 분석 (Ask) -->
-                            <video id="video-asset-feature1" class="absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-300" loop muted playsinline preload="auto">
-                                <source src="noonchi-ask.mp4" type="video/mp4">
-                            </video>
-
-                            <!-- Feature 2: 실전 비즈니스 롤플레잉 (Role-play) -->
-                            <video id="video-asset-feature2" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" loop muted playsinline preload="auto">
-                                <source src="noonchi-roleplay.mp4" type="video/mp4">
-                            </video>
-
-                            <!-- Feature 3: 정량적 소속감 지표 리포트 (Report) -->
-                            <video id="video-asset-feature3" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" loop muted playsinline preload="auto">
-                                <source src="noonchi-report.mp4" type="video/mp4">
-                            </video>
-                        </div>
-
+                        <!-- Feature 3: 정량적 소속감 지표 리포트 (Report) -->
+                        <video id="video-asset-feature3" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300" loop muted playsinline preload="auto">
+                            <source src="noonchi-report.mp4" type="video/mp4">
+                        </video>
                     </div>
 
                     <!-- ========================================================= -->
                     <!-- SIMULATOR VIEW (For Manual Click Interactions) -->
                     <!-- ========================================================= -->
-                    <div id="phone-content-simulator" class="hidden flex-1 flex flex-col relative bg-slate-900 overflow-hidden transition-all duration-300">
+                    <div id="phone-content-simulator" class="hidden absolute inset-0 flex flex-col bg-slate-900 overflow-hidden pt-9 transition-all duration-300">
 
                         <!-- Internal App Header -->
                         <div class="px-5 py-3 border-b border-white/10 flex items-center justify-between bg-slate-950">
