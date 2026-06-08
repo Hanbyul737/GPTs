@@ -184,8 +184,8 @@
             <!-- iOS Device High Fidelity Wrapper (modern iPhone, 9:16 screen to match the recordings) -->
             <div class="relative mx-auto bg-black border-[12px] border-black rounded-[3rem] h-[614px] w-[335px] shadow-2xl overflow-hidden ring-1 ring-slate-700/40">
 
-                <!-- Screen -->
-                <div class="w-full h-full bg-black relative overflow-hidden">
+                <!-- Screen (top-strip color is set per-video by JS so the island blends in) -->
+                <div id="phone-screen" class="w-full h-full bg-black relative overflow-hidden" style="background-color:#edeff8">
 
                     <!-- Dynamic Island -->
                     <div class="absolute top-[9px] left-1/2 -translate-x-1/2 h-[26px] w-[92px] bg-black rounded-full z-50 flex items-center justify-end pr-3">
@@ -543,6 +543,17 @@
             const titleLabelEl = document.getElementById('active-video-hud-title');
             if (titleLabelEl) {
                 titleLabelEl.textContent = videoLabels[featureId] || 'Noonchi Demo Play';
+            }
+
+            // Tint the top strip to match each clip's header so the Dynamic Island blends in
+            const stripColors = {
+                'feature1': '#edeff8',  // Ask result header
+                'feature2': '#cad6f9',  // Role-play header
+                'feature3': '#dadff6'   // Report header
+            };
+            const screenEl = document.getElementById('phone-screen');
+            if (screenEl) {
+                screenEl.style.backgroundColor = stripColors[featureId] || '#edeff8';
             }
 
             // Pause all running video elements and hide them
