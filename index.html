@@ -216,21 +216,23 @@
                             <span class="w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse"></span>
                         </div>
 
-                        <!-- Video Tags: one demo clip per feature -->
-                        <!-- Feature 1: 메신저 맥락 분석 (Ask) -->
-                        <video id="video-asset-feature1" class="absolute inset-3 object-cover rounded-2xl shadow-lg opacity-100 transition-opacity duration-300" loop muted playsinline preload="auto">
-                            <source src="noonchi-ask.mp4" type="video/mp4">
-                        </video>
+                        <!-- Video Tags: one demo clip per feature, framed inside an evenly-padded box -->
+                        <div class="absolute inset-3 rounded-2xl overflow-hidden shadow-lg">
+                            <!-- Feature 1: 메신저 맥락 분석 (Ask) -->
+                            <video id="video-asset-feature1" class="absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-300" loop muted playsinline preload="auto">
+                                <source src="noonchi-ask.mp4" type="video/mp4">
+                            </video>
 
-                        <!-- Feature 2: 실전 비즈니스 롤플레잉 (Role-play) -->
-                        <video id="video-asset-feature2" class="absolute inset-3 object-cover rounded-2xl shadow-lg opacity-0 transition-opacity duration-300" loop muted playsinline preload="auto">
-                            <source src="noonchi-roleplay.mp4" type="video/mp4">
-                        </video>
+                            <!-- Feature 2: 실전 비즈니스 롤플레잉 (Role-play) -->
+                            <video id="video-asset-feature2" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" loop muted playsinline preload="auto">
+                                <source src="noonchi-roleplay.mp4" type="video/mp4">
+                            </video>
 
-                        <!-- Feature 3: 정량적 소속감 지표 리포트 (Report) -->
-                        <video id="video-asset-feature3" class="absolute inset-3 object-cover rounded-2xl shadow-lg opacity-0 transition-opacity duration-300" loop muted playsinline preload="auto">
-                            <source src="noonchi-report.mp4" type="video/mp4">
-                        </video>
+                            <!-- Feature 3: 정량적 소속감 지표 리포트 (Report) -->
+                            <video id="video-asset-feature3" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" loop muted playsinline preload="auto">
+                                <source src="noonchi-report.mp4" type="video/mp4">
+                            </video>
+                        </div>
 
                     </div>
 
